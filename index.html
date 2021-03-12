@@ -1515,15 +1515,35 @@
             ></path>
           </g>
         </g>
+        <path id="pointer" d="M190,47.5 l19,-19 l-38,0z"></path>
       </svg>
-      <button id="spin">Rotate</button>
+      <button id="spin">Spin</button>
     </div>
     <script>
       var wrapper = document.getElementById('wheel');
+      var transitionTime = Math.floor(Math.random() * (8 - 3 + 1)) + 3;
+      wrapper.style.transition = transitionTime + 's';
 
       document.getElementById('spin').addEventListener('click', function () {
         var rotateDegrees = Math.floor(Math.random() * (2160 - 720 + 1)) + 720;
         wrapper.style.transform = 'scale(0.8) rotate(' + rotateDegrees + 'deg)';
+
+        //opacity chosen slice
+        setTimeout(function () {
+          var pointerPosition = document
+            .getElementById('pointer')
+            .getBoundingClientRect();
+          var pointerBottomPosition = pointerPosition.bottom;
+          var pointerCenter = pointerPosition.right - pointerPosition.width / 2;
+          console.log('pointerCenter', pointerCenter);
+          //+2 prevents from selecting itself
+          var selectedSlice = document.elementFromPoint(
+            pointerCenter,
+            pointerBottomPosition + 2
+          ).parentElement;
+          console.log('selectedSlice', selectedSlice);
+          selectedSlice.style.opacity = '0.25';
+        }, transitionTime * 1000 + 750);
       });
     </script>
   </body>
