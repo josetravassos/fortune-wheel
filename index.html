@@ -1781,14 +1781,24 @@
         i;
 
       document.getElementById('spin').addEventListener('click', function () {
-        var rotateDegrees = Math.floor(Math.random() * (2160 - 720 + 1)) + 720;
-        var transitionTime = Math.floor(Math.random() * (8 - 3 + 1)) + 3;
-        arrow.style.transform = 'rotate(' + rotateDegrees + 'deg)';
-        arrow.style.transition = transitionTime + 's';
+        arrow.style.transform = 'rotate(0deg)';
+        arrow.style.transition = 'unset';
 
         for (i = 0; i < allPaths.length; ++i) {
           allPaths[i].style.opacity = '1';
         }
+        setTimeout(function () {
+          getRotating();
+        });
+      });
+
+      function getRotating() {
+        var transitionTime = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
+        var rotateDegrees = Math.floor(Math.random() * (2160 - 720 + 1)) + 720;
+        arrow.style.transform = 'rotate(' + rotateDegrees + 'deg)';
+        arrow.style.transition = transitionTime + 's';
+        console.log(`rotation Degrees:`, rotateDegrees);
+        console.log(`transition Time:`, transitionTime);
         //  opacity chosen slice
         setTimeout(function () {
           var pointerPosition = document
@@ -1802,11 +1812,10 @@
             pointerBottomPosition + 2
           ).parentElement;
 
-          console.log('selectedSlice', selectedSlice.firstElementChild);
-          selectedSlice.firstElementChild.style.opacity = '0.25';
-          // selectedSlice.lastElementChild.style.transform = 'translate(0, 5px)';
+          selectedSlice.firstElementChild.style.opacity = '0.5';
+          console.log(`selected Slice:`, selectedSlice.firstElementChild);
         }, transitionTime * 1000 + 100);
-      });
+      }
     </script>
   </body>
 </html>
