@@ -29,7 +29,7 @@
             <g id="Slice-12">
               <path
                 id="sliceBkg_12"
-                data-name="sliceBkg 12"
+                data-name="sliceBkg"
                 d="M190,1V190L95.5,26.29A188.13,188.13,0,0,1,190,1Z"
                 fill="#bc84e7"
                 fill-rule="evenodd"
@@ -146,7 +146,7 @@
             <g id="Slice-11">
               <path
                 id="sliceBkg_11"
-                data-name="sliceBkg 11"
+                data-name="sliceBkg"
                 d="M95.82,26.86,190,190,26.86,95.79A187.53,187.53,0,0,1,95.82,26.86Z"
                 fill="#0b823e"
                 fill-rule="evenodd"
@@ -204,7 +204,7 @@
             <g id="Slice-10">
               <path
                 id="sliceBkg_10"
-                data-name="sliceBkg 10"
+                data-name="sliceBkg"
                 d="M26.34,95.5,190,190H1A188.12,188.12,0,0,1,26.34,95.5Z"
                 fill="#ba221a"
                 fill-rule="evenodd"
@@ -442,7 +442,7 @@
             <g id="Slice-9">
               <path
                 id="sliceBkg_9"
-                data-name="sliceBkg 9"
+                data-name="sliceBkg"
                 d="M1,190H190L26.29,284.5A188.13,188.13,0,0,1,1,190Z"
                 fill="#ff7d2f"
                 fill-rule="evenodd"
@@ -588,7 +588,7 @@
             <g id="Slice-8">
               <path
                 id="sliceBkg_8"
-                data-name="sliceBkg 8"
+                data-name="sliceBkg"
                 d="M26.86,284.18,190,190,95.79,353.14A187.53,187.53,0,0,1,26.86,284.18Z"
                 fill="#ffc703"
                 fill-rule="evenodd"
@@ -839,7 +839,7 @@
             <g id="Slice-7">
               <path
                 id="sliceBkg_7"
-                data-name="sliceBkg 7"
+                data-name="sliceBkg"
                 d="M95.5,353.66,190,190V379A188.12,188.12,0,0,1,95.5,353.66Z"
                 fill="#024181"
                 fill-rule="evenodd"
@@ -882,7 +882,7 @@
             <g id="Slice-6">
               <path
                 id="sliceBkg_6"
-                data-name="sliceBkg 6"
+                data-name="sliceBkg"
                 d="M190,379V190l94.5,163.71A188.13,188.13,0,0,1,190,379Z"
                 fill="#bc84e7"
                 fill-rule="evenodd"
@@ -1001,7 +1001,7 @@
             <g id="Slice-5">
               <path
                 id="sliceBkg_5"
-                data-name="sliceBkg 5"
+                data-name="sliceBkg"
                 d="M284.18,353.14,190,190l163.14,94.21A187.53,187.53,0,0,1,284.18,353.14Z"
                 fill="#0b823e"
                 fill-rule="evenodd"
@@ -1060,7 +1060,7 @@
             <g id="Slice-4">
               <path
                 id="sliceBkg_4"
-                data-name="sliceBkg 4"
+                data-name="sliceBkg"
                 d="M353.66,284.5,190,190H379A188.12,188.12,0,0,1,353.66,284.5Z"
                 fill="#ba221a"
                 fill-rule="evenodd"
@@ -1304,7 +1304,7 @@
             <g id="Slice-3">
               <path
                 id="sliceBkg_3"
-                data-name="sliceBkg 3"
+                data-name="sliceBkg"
                 d="M379,190H190L353.71,95.5A188.13,188.13,0,0,1,379,190Z"
                 fill="#ff7d2f"
                 fill-rule="evenodd"
@@ -1451,7 +1451,7 @@
             <g id="Slice-2">
               <path
                 id="sliceBkg_2"
-                data-name="sliceBkg 2"
+                data-name="sliceBkg"
                 d="M353.14,95.82,190,190,284.21,26.86A187.53,187.53,0,0,1,353.14,95.82Z"
                 fill="#ffc703"
                 fill-rule="evenodd"
@@ -1702,7 +1702,7 @@
             <g id="Slice-1">
               <path
                 id="sliceBkg_1"
-                data-name="sliceBkg 1"
+                data-name="sliceBkg"
                 d="M284.5,26.34,190,190V1A188.12,188.12,0,0,1,284.5,26.34Z"
                 fill="#024181"
                 fill-rule="evenodd"
@@ -1777,7 +1777,7 @@
       var wheel = document.getElementById('wheel');
       var arrow = document.getElementById('arrow');
       var pointer = document.getElementById('pointer');
-      var allPaths = document.querySelectorAll('path'),
+      var allPaths = document.querySelectorAll('path[data-name="sliceBkg"]'),
         i;
 
       document.getElementById('spin').addEventListener('click', function () {
@@ -1787,6 +1787,7 @@
         for (i = 0; i < allPaths.length; ++i) {
           allPaths[i].style.opacity = '1';
         }
+
         setTimeout(function () {
           getRotating();
         });
