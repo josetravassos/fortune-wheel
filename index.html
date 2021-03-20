@@ -1801,6 +1801,7 @@
       </div>
     </div>
     <script>
+      const spin = document.getElementById('spin');
       const wheel = document.getElementById('wheel');
       const arrow = document.getElementById('arrow');
       const pointer = document.getElementById('pointer');
@@ -1826,7 +1827,7 @@
 
       // SPIN
 
-      document.getElementById('spin').addEventListener('click', function () {
+      spin.addEventListener('click', function () {
         // SELECT SUBJECT
 
         const collection = subjectsList.selectedOptions;
@@ -1873,14 +1874,12 @@
         arrow.style.transition = transitionTime + 's';
         //  set opacity to slice
         setTimeout(function () {
-          const pointerPosition = document
-            .getElementById('pointer')
-            .getBoundingClientRect();
+          const pointerPosition = pointer.getBoundingClientRect();
           const pointerBottomPosition = pointerPosition.bottom;
           const pointerCenter =
             pointerPosition.right - pointerPosition.width / 2;
 
-          selectedSlice = document.elementFromPoint(
+          const selectedSlice = document.elementFromPoint(
             pointerCenter,
             pointerBottomPosition + 2
           ).parentElement;
